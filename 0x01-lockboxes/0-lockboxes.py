@@ -12,16 +12,17 @@ def canUnlockAll(boxes):
     """
     Iterate through the boxes
     """
-    for box_num in range(len(boxes)):
-        """
-        if we can unlock the current box
-        """
-        if box_num in unlocked_boxes:
-            """
-            Add all keys in the current box to the set of unlocked boxes
-            """
-            unlocked_boxes.update(boxes[box_num])
-    """
-    Check if all boxes can be unlocked
-    """
-    return len(unlocked_boxes) == len(boxes)
+    if (type(boxes)) is not list:
+        return False
+    elif (len(boxes)) == 0:
+        return False
+
+    for k in range(1, len(boxes) - 1):
+        boxes_checked = False
+        for n in range(len(boxes)):
+            boxes_checked = k in boxes[n] and k != n
+            if boxes_checked:
+                break
+        if boxes_checked is False:
+            return boxes_checked
+    return True
