@@ -1,8 +1,12 @@
 #!/usr/bin/python3
+"""
+Main file for testing
+"""
+
 import math
 
 
-def minOperations(n) :
+def minOperations(n):
     def gd(number):
         greatest_divisor = 1
         for i in range(2, number//2 + 1):
@@ -13,7 +17,7 @@ def minOperations(n) :
     h = gd(n)
     p = gd(n)
     o = gd(n) + 1
-    while h < n :
+    while h < n:
         h = h + p
         o = o + 1
     return o
